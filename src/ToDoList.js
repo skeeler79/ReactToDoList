@@ -9,11 +9,12 @@ constructor(props){
     this.createTodo=this.createTodo.bind(this);
     this.removeTask = this.removeTask.bind(this);
     this.update=this.update.bind(this);
+    this.toggleCompletion=this.toggleCompletion.bind(this)
 }
 
 createTodo(newTodo){
     this.setState({
-        todos:[...this.state.todos, newTodo]
+        todos:[...this.state.todos, newTodo,]
     })
 }
 
@@ -32,14 +33,28 @@ update(id, updatedTask){
     });
     this.setState({todos:updatedTodos});
 }
+
+toggleCompletion(id){
+    const updatedTodos = this.state.todos.map(todo => {
+        if(todo.id === id){
+            return{...todo, completed: !todo.completed};
+        }
+        return todo;
+    });
+    this.setState({todos:updatedTodos});
+}
+
+
   render() {
       const todos= this.state.todos.map(todo =>(
           <ToDo 
           key={todo.id}
           id={todo.id}
           task={todo.task}
+          completed={todo.completed}
           removeItem={this.removeTask}
           updateTodo={this.update}
+          toggleTodo={this.toggleCompletion}
           />
       ));
     return (
