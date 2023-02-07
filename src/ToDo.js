@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './Todo.css'
+import "./Todo.css";
 
 class ToDo extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class ToDo extends Component {
     this.handleEdit = this.handleEdit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
-    this.handleToggle=this.handleToggle.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
   }
   //Todo has access to the props that are specified in ToDoList
   handleRemove() {
@@ -32,19 +32,19 @@ class ToDo extends Component {
 
   handleChange(evt) {
     this.setState({
-        [evt.target.name] : evt.target.value
+      [evt.target.name]: evt.target.value,
     });
   }
 
-  handleToggle(evt){
-      this.props.toggleTodo(this.props.id)
+  handleToggle(evt) {
+    this.props.toggleTodo(this.props.id);
   }
   render() {
     let result;
     if (this.state.isEditing) {
       result = (
-        <div>
-          <form onSubmit={this.handleUpdate}>
+        <div className="Todo">
+          <form className='Todo-edit-form' onSubmit={this.handleUpdate}>
             <input
               type="text"
               name="task"
@@ -57,10 +57,23 @@ class ToDo extends Component {
       );
     } else {
       result = (
-        <div>
-          <button onClick={this.handleEdit}>Edit</button>
-          <button onClick={this.handleRemove}>X</button>
-          <li className={this.props.completed ? 'completed' : ''} onClick={this.handleToggle}>{this.props.task}</li>
+        <div className="Todo">
+          <div className="Todo-buttons">
+            <button onClick={this.handleEdit}>
+              <i class="fas fa-pen" />{" "}
+            </button>
+            <button onClick={this.handleRemove}>
+              <i class="fas fa-trash" />
+            </button>
+          </div>
+          <li
+            className={
+              this.props.completed ? "Todo-task completed" : "Todo-task"
+            }
+            onClick={this.handleToggle}
+          >
+            {this.props.task}
+          </li>
         </div>
       );
     }
