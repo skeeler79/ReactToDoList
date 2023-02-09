@@ -24,18 +24,20 @@ class NewToDoForm extends Component {
   render() {
     return (
       <div>
-        <form className='NewTodoForm' onSubmit={this.handleSubmit}>
-          <label htmlFor="task">New Todo: </label>
+        <form className="NewTodoForm" onSubmit={this.handleSubmit}>
+          
+          <label htmlFor="task"></label>
           <input
-          type='text'
+            className="task"
+            type="text"
             id="task"
             name="task"
             value={this.state.task}
             onChange={this.handleChange}
+            autoComplete='off'
           />
           <button>Add task</button>
         </form>
-        
       </div>
     );
   }

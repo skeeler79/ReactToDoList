@@ -60,7 +60,8 @@ toggleCompletion(id){
       ));
     return (
       <div className="TodoList">
-          <h1>Todo List!</h1>
+          <h1>Today's Todos</h1>
+          <span>Make the most of your day with a plan!</span>
           <ul>
               <li>{todos}</li>
           </ul>
