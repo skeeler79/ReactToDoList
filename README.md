@@ -1,3 +1,5 @@
+This is an editable to do list, which also allows you to cross off or delete each task as it is completed. This app was initally created as a tutorial during a React course with some custom updates to styling and function.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
